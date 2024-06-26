@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--form-->
+    <record id="wizard_invoice" model="ir.ui.view">
+        <field name="name">Invoice Booking</field>
+        <field name="model">report.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Invoice Booking">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="wizard_report" string="Invoice PDF" type="object" class="btn-success"/>
+                    <button string="cancel" class="btn-danger" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--action -->
+    <record id="wizard_invoice_action" model="ir.actions.act_window">
+        <field name="name">  Invoice Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">report.invoice</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="Report"
+              parent="menu_elixir_sports_form"
+              name="Report"
+              sequence="4"/>
+    <menuitem id="Report_invoice"
+              parent="Report"
+              name="Invoice"
+              action="wizard_invoice_action"
+              sequence="4"/>
+</odoo>

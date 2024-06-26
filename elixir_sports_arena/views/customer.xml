@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="form_view_elixir_customer_details" model="ir.ui.view">
+        <field name="name">elixir_customer_form</field>
+        <field name="model">elixir.customer</field>
+        <field name="arch" type="xml">
+            <form string="Customer Profile">
+                <sheet>
+                    <header>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="adm_no"/>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="full_name"/>
+                            <field name="dob"/>
+                            <field name="admission_date"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                        <group name="address_details">
+                            <label for="address_line1" string="Address Name"/>
+                            <div class="o_address_format">
+                                <field name="address_line1" placeholder="Street..." class="o_address_street"/>
+                                <field name="address_line2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="city" placeholder="City" class="o_address_city"/>
+                                <field name="state" class="o_address_state" placeholder="State"
+                                       options='{"no_open": True}'/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="district" placeholder="District" class="o_address_district"/>
+                                <field name="country" placeholder="Country" class="o_address_country"
+                                       options='{"no_open": True, "no_create": True}'/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="phone_no"/>
+                            <field name="f_name"/>
+                            <field name="blood_group"/>
+                            <field name="languages_known_ids" widget="many2many_tags"/>
+                            <field name="proof"/>
+                            <field name="email"/>
+                            <field name="emergency_contact_name"/>
+                            <field name="emergency_contact_phone"/>
+                            <field name="medical_conditions"/>
+                            <!--                            <field name="checkin_id"/>-->
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_elixir_customer_tree" model="ir.ui.view">
+        <field name="name">elixir.customer.tree</field>
+        <field name="model">elixir.customer</field>
+        <field name="arch" type="xml">
+            <tree string="Student Tree">
+                <field name="adm_no"/>
+                <field name="full_name"/>
+                <field name="admission_date"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="phone_no"/>
+                <field name="f_name"/>
+                <field name="blood_group"/>
+                <field name="email"/>
+                <field name="emergency_contact_name"/>
+                <field name="emergency_contact_phone"/>
+                <field name="medical_conditions"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_elixir_customer_kanban" model="ir.ui.view">
+        <field name="name">elixir.customer.kanban.view</field>
+        <field name="model">elixir.customer</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="adm_no"/>
+                <field name="full_name"/>
+                <field name="gender"/>
+                <field name="phone_no"/>
+                <field name="admission_date"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click" style="display: inline-block;">
+                            <div class="oe_kanban_details">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <strong>
+                                            <span class="fa fa-user" style="margin-right:5px;"/>
+                                            <field name="full_name"/>
+                                        </strong>
+                                        <br/>
+                                        <field name="adm_no"/>
+                                        <br/>
+                                        <span class="fa fa-calendar" style="margin-right:5px;"/>
+                                        <field name="dob"/>
+                                        <br/>
+                                        <span class="fa fa-phone" style="margin-right:5px;"/>
+                                        <field name="phone_no"/>
+                                        <br/>
+                                        <span class="fa fas fa-envelope" style="margin-right:5px;"/>
+                                        <field name="email"/>
+                                        <div class="o_kanban_record_bottom">
+                                            <div class="oe_kanban_bottom_left"/>
+                                            <div class="oe_kanban_bottom_right">
+                                                <field name="gender"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_customer_admission_details">
+        <field name="name">Elixir Customer Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">elixir.customer</field>
+        <field name="view_mode">kanban,tree,form,search,pivot,graph</field>
+
+    </record>
+
+    <menuitem id="menu_elixir_sports_form"
+              name="ESA"
+              sequence="1"/>
+    <menuitem id="menu_elixir_sports_customer"
+              name="Customers"
+              parent="menu_elixir_sports_form"
+              sequence="2"/>
+    <menuitem id="menu_customer_admission"
+              name="Customer Details"
+              parent="menu_elixir_sports_customer"
+              action="action_customer_admission_details"
+              sequence="1"/>
+</odoo>
+
+
+

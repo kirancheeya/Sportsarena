@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- expense Form views -->
+    <record id="event_expense_form" model="ir.ui.view">
+        <field name="name">event_management.expense</field>
+        <field name="model">event_management.expense</field>
+        <field name="arch" type="xml">
+            <form string="expenses">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="date"/>
+                        <field name="amount"/>
+                        <field name="employee_id"/>
+                        <field name="category"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--tree-->
+    <record id="Event_expense_tree" model="ir.ui.view">
+        <field name="name">event_management.expense</field>
+        <field name="model">event_management.expense</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="employee_id"/>
+                <field name="category"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action-->
+    <record id="action_expense_management" model="ir.actions.act_window">
+        <field name="name">elixer_expense</field>
+        <field name="res_model">event_management.expense</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new expense info.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="Event_Management"
+              name="Elixer Event Management"
+              sequence="01"
+    />
+    <menuitem id="event_expense"
+              name="expense"
+              action="action_expense_management"
+              parent="Event_Management"
+              sequence="04"
+    />
+
+</odoo>
+

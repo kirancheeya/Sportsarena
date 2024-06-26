@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fees_management_form" model="ir.ui.view">
+        <field name="name">Fees Management</field>
+        <field name="model">hostel_fees_details</field>
+        <field name="arch" type="xml">
+            <form string="Fees Manager">
+                <sheet>
+                    <group>
+                        <field name="roll_no"/>
+                        <field name="room_no"/>
+                        <field name="name"/>
+                        <field name="contact_no"/>
+                        <field name="department"/>
+                        <field name="discount_amnt"/>
+                        <field name="fees"/>
+                        <field name="mess_charge"/>
+                        <field name="miscellaneous"/>
+                        <field name="checkin_Date"/>
+                        <field name="amount_due"/>
+                        <field name="payment_status"/>
+                        <field name="total"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_fees_management_tree" model="ir.ui.view">
+        <field name="name">Fees Management</field>
+        <field name="model">hostel_fees_details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="roll_no"/>
+                <field name="room_no"/>
+                <field name="name"/>
+                <field name="contact_no"/>
+                <field name="department"/>
+                <field name="discount_amnt"/>
+                <field name="fees"/>
+                <field name="mess_charge"/>
+                <field name="miscellaneous"/>
+                <field name="checkin_Date"/>
+                <field name="payment_status"/>
+                <field name="total"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="fees_management">
+        <field name="name">Fees Management</field>
+        <field name="res_model">hostel_fees_details</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="hostel"
+              name="Hostel"
+    />
+    <menuitem id="Rooms"
+              name="Rooms"
+              parent="hostel"/>
+
+    <menuitem id="fees_management_c"
+              name="Fees Management"
+              parent="Rooms"
+              action="fees_management"/>
+</odoo>

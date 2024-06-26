@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Define a new action for the cancellation button -->
+        <record id="action_cancel_booking" model="ir.actions.server">
+            <field name="name">Cancel Booking</field>
+            <field name="model_id" ref="model_elixir_booking"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = self.env['elixir.booking'].browse(context.get('active_ids', []))
+                action.action_cancel()
+            </field>
+        </record>
+
+        <!-- Define a new menu item for the cancellation action -->
+        <record id="action_view_cancel_booking" model="ir.actions.act_window">
+            <field name="name">Cancel Booking</field>
+            <field name="res_model">elixir.booking</field>
+            <field name="context">{'default_status': 'cancellation'}</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="view_booking_form"/>
+            <field name="binding_model_id" ref="model_elixir_booking"/>
+            <field name="type">ir.actions.act_window</field>
+        </record>
+
+        <!-- Define a new view for the cancellation details -->
+        <record id="view_cancellation_details_form" model="ir.ui.view">
+            <field name="name">cancellation.details.form</field>
+            <field name="model">elixir.cancellation.details</field>
+            <field name="arch" type="xml">
+                <form string="Cancellation Details">
+                    <sheet>
+                        <group>
+                            <field name="booking_id"/>
+                            <field name="customer_id"/>
+                            <field name="reason" widget="text" options="{'no_rich_text': True}"/>
+                            <!-- Add other fields here -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add your existing views and menu items here -->
+
+    </data>
+</odoo>
+
+
+
+
+

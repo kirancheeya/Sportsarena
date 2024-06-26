@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hostel_checkin,hostel.checkin,model_hostel_checkin,,1,1,1,1
+access_hostel_st,hostel.st,model_hostel_st,,1,1,1,1
+access_hostel_checkout,hostel.checkout,model_hostel_checkout,,1,1,1,1
+access_room_checkin,room.checkin,model_room_checkin,,1,1,1,1
+access_hostel_room_details,hostel.room_details,model_hostel_room_details,,1,1,1,1
+access_student_admission,student.admission,model_student_admission,,1,1,1,1
+access_manager_details,manager.details,model_manager_details,,1,1,1,1
+access_fees_details,fees.details,model_fees_details,,1,1,1,1
+access_hostel_fees_details,hostel_fees_details,model_hostel_fees_details,,1,1,1,1
+access_report_fees_payment,report_fees.payment,model_report_fees_payment,,1,1,1,1
+access_employees_details,employees.details,model_employees_details,,1,1,1,1

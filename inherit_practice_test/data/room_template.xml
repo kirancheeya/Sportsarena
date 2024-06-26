@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="available_rooms_template" name="Available Rooms Template">
+        <t t-foreach="available_rooms" t-as="room">
+            <div>
+                <p>Room Number:
+                    <t t-esc="room.name"/>
+                </p>
+                <p>Capacity:
+                    <t t-esc="room.capacity"/>
+                </p>
+                <p>Sharing Configuration:
+                    <t t-esc="room.sharing_configuration"/>
+                </p>
+                <p>Price:
+                    <t t-esc="room.price"/>
+                </p>
+                <p t-if="room.availability">Availability:
+                    <span style="color: green;">Available</span>
+                </p>
+                <p t-if="not room.availability">Availability:
+                    <span style="color: red;">Not Available</span>
+                </p>
+<!--                 <p>Number of Students: <t t-esc="room.students_count"/></p>-->
+                <hr/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

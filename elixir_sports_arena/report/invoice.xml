@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="invoice_booking" model="ir.actions.report">
+        <field name="name">Invoice Booking</field>
+        <field name="model">elixir.booking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">elixir_sports_arena.invoice_booking_customer</field>
+        <field name="report_file">elixir_sports_arena.invoice_booking_customer</field>
+        <field name="print_report_name">'Invoice'</field>
+        <field name="binding_model_id" ref="model_elixir_booking"/>
+        <field name="binding_type">report</field>
+    </record>
+    <template id="invoice_booking_customer">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!--                    <t t-foreach="records" t-as="o">-->
+                    <div class="row">
+                        <table>
+                            <td>
+                                <h2>Elixir Sports Arena Invoice</h2>
+
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <h3>Invoice Booking</h3>
+                                        <td>
+                                            <thead>
+                                                <tr>
+                                                    <th>Booking No</th>
+                                                    <th>Customer No</th>
+                                                    <th>Contact Name</th>
+                                                    <th>Contact Person</th>
+                                                    <th>Customer Email</th>
+                                                    <th>Employee Name</th>
+                                                    <th>Predefined Time</th>
+                                                    <th>Sports</th>
+                                                    <th>Badminton Court</th>
+                                                    <th>TT Court</th>
+                                                    <th>Price</th>
+                                                    <th>Racket Bookings</th>
+                                                    <th>Rent Price</th>
+                                                    <th>Discount</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <t t-set="total" t-value="0"/>
+                                            <tbody>
+                                                <tr t-foreach="records" t-as="order">
+                                                    <td>
+                                                        <span t-esc="order.booking_no"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.customer_id.adm_no"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.customer_name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.cus_contact"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.cus_email"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.emp_name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.predefined_time"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.sports"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.court_type"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.tt_court_type"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.price"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.racket_bookings.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.rent_price"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.discount"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.total"/>
+                                                    </td>
+                                                    <t t-set="total" t-value="float(total)+float(order.total)"/>
+                                                </tr>
+
+                                            </tbody>
+
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <p>
+                                    <strong>Total Price:</strong>
+                                    <t t-esc="total"/>
+                                </p>
+                            </td>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_elixir.customer,elixir_customer,model_elixir_customer,,1,1,1,1
+access_customer.complaint,customer_complaint,model_customer_complaint,,1,1,1,1
+access_elixir.employee,elixir_employee,model_elixir_employee,,1,1,1,1
+access_employee.reply,employee_ reply,model_employee_reply,,1,1,1,1
+access_elixir.booking,elixir_booking,model_elixir_booking,,1,1,1,1
+access_elixir.badminton_court,elixir_badminton_court,model_elixir_badminton_court,,1,1,1,1
+access_elixir_tt_court,elixir_tt_court,model_elixir_tt_court,,1,1,1,1
+access_elixir_swimming_pool_court,elixir_swimming_pool_court,model_elixir_swimming_pool_court,,1,1,1,1
+access_sports_inventory,sports.inventory,model_sports_inventory,,1,1,1,1
+access_report_invoice,report_invoice,model_report_invoice,,1,1,1,1

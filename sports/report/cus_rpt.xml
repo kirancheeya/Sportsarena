@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_report" model="ir.actions.report">
+        <field name="name">Report Customer</field>
+        <field name="model">sports.customer</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sports.report_customer</field>
+        <field name="report_file">sports.report_customer</field>
+        <field name="print_report_name">'Report Customer'</field>
+        <field name="binding_model_id" ref="model_sports_customer"/>
+        <field name="binding_type">report</field>
+    </record>
+    <template id="report_customer">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="records" t-as="order">
+                        <div class="row">
+                            <table>
+                                <td>customer details
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <h3>Customer Report</h3>
+                                            <td>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Phone</th>
+                                                        <th>Address</th>
+                                                        <th>Date of Birth</th>
+                                                        <th>Gender</th>
+                                                        <th>Emergency Contact Name</th>
+                                                        <th>Emergency Contact Phone</th>
+                                                        <th>Medical Conditions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span t-esc="order.name"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.email"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.phone"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.address"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.date_of_birth"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.gender"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.emergency_contact_name"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.emergency_contact_phone "/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.medical_conditions"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </table>
+                        </div>
+                        <span>-------------------------------------------------------</span>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

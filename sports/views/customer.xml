@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Customer Form views -->
+    <record id="view_custome_form" model="ir.ui.view">
+        <field name="name">sports.customer.form</field>
+        <field name="model">sports.customer</field>
+        <field name="arch" type="xml">
+            <form string="Customers">
+                <sheet>
+                    <header>
+                        <button string="Send WhatsApp Message" type="object" name="send_whatsapp_message"/>
+                    </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="address"/>
+                        <field name="date_of_birth"/>
+                        <field name="gender"/>
+                        <field name="str_date"/>
+                        <field name="message"/>
+                    </group>
+                </sheet>
+                <sheet>
+                    <group>
+                        <field name="emergency_contact_name"/>
+                        <field name="emergency_contact_phone"/>
+                        <field name="medical_conditions"/>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_customer_tree" model="ir.ui.view">
+        <field name="name">sports.customer.tree</field>
+        <field name="model">sports.customer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="address"/>
+                <field name="date_of_birth"/>
+                <field name="gender"/>
+                <field name="emergency_contact_name"/>
+                <field name="emergency_contact_phone"/>
+                <field name="medical_conditions"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action-->
+    <record id="action_Gurukul_Arena" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="res_model">sports.customer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Customer info.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="Main_menu"
+              name="Gurukul's Sports Arena"
+              sequence="1"
+    />
+    <menuitem id="customer"
+              name="Customer"
+              parent="Main_menu"
+              action="action_Gurukul_Arena"
+              sequence="1"
+    />
+
+</odoo>
+

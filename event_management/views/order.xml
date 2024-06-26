@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- order Form views -->
+    <record id="event_order_form" model="ir.ui.view">
+        <field name="name">event_management.order</field>
+        <field name="model">event_management.order</field>
+        <field name="arch" type="xml">
+            <form string="order">
+                <sheet>
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable' : '1'}"
+                               statusbar_colors='{"new" : "green"}'/>
+                        <button name="move_approved" string="Approve" type="object"/>
+                    </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="customer_id"/>
+                        <field name="products"/>
+                        <field name="total_amount"/>
+                        <field name="status"/>
+                        <field name="payment_method"/>
+                        <field name="delivery_address"/>
+                        <field name="billing_address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--tree-->
+    <record id="Event_order_tree" model="ir.ui.view">
+        <field name="name">event_management.order</field>
+        <field name="model">event_management.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="customer_id"/>
+                <field name="products"/>
+                <field name="total_amount"/>
+                <field name="status"/>
+                <field name="payment_method"/>
+                <field name="delivery_address"/>
+                <field name="billing_address"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action-->
+    <record id="action_order_management" model="ir.actions.act_window">
+        <field name="name">elixer_order</field>
+        <field name="res_model">event_management.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new order info.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="Event_Management"
+              name="Elixer Event Management"
+              sequence="01"
+    />
+    <menuitem id="event_order"
+              name="order"
+              action="action_order_management"
+              parent="Event_Management"
+              sequence="06"
+    />
+
+</odoo>
+

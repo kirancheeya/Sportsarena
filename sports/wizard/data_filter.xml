@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--form-->
+    <record id="view_wizard2_form" model="ir.ui.view">
+        <field name="name">Wizard2</field>
+        <field name="model">report.data</field>
+        <field name="arch" type="xml">
+            <form string="Employee filter">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="wizard_report" string="Create" type="object" class="btn-success"/>
+                    <button string="cancel" class="btn-danger" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--action -->
+    <record id="wizard2_action" model="ir.actions.act_window">
+        <field name="name">Wizard2 Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">report.data</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard2_filter"
+              parent="Main_menu"
+              name="Employee Wizard"
+              action="wizard2_action"
+              sequence="4"/>
+</odoo>

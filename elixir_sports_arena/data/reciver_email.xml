@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Email Template for Complaint Notification -->
+        <record id="complaint_email_template" model="mail.template">
+            <field name="name">Complaint Notification</field>
+            <field name="email_from">kiranraj.ds0061@gmail.com</field> <!-- Set the "From" address -->
+            <field name="subject">New Complaint Received: [{{ object.complain }}] {{ object.subject }}</field>
+            <field name="email_to">${object.customer_email}</field> <!-- Set the "To" address from customer_email field -->
+            <field name="model_id" ref="model_customer_complaint"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+                <p>Dear Customer,</p>
+                <p>We have received your complaint with the subject: <strong>[{{ object.complain }}] {{ object.subject }}</strong>. Thank you for bringing this to our attention.</p>
+                <p>Our team will review your complaint and get back to you as soon as possible.</p>
+                <p>Thank you for your patience.</p>
+                <p>Warm regards,</p>
+                <p>Your Company Name</p>
+            ]]></field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="management_info_form_view" model="ir.ui.view">
+        <field name="name">management.info.form</field>
+        <field name="model">management.info</field>
+        <field name="arch" type="xml">
+            <form string="Lab">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="management_info_tree_view" model="ir.ui.view">
+        <field name="name">management.info.tree</field>
+        <field name="model">management.info</field>
+        <field name="arch" type="xml">
+            <tree string="management Information">
+                <field name="name"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_management_info" model="ir.actions.act_window">
+        <field name="name">management.info</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">management.info</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <menuitem id="eighth_menu_hospital"
+              parent="Event_Management"
+              name="management info"
+              action="action_management_info"
+              sequence="8"/>
+</odoo>

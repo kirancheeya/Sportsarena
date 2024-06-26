@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="mail.template" id="event_card_email_template">
+            <field name="name">Send event Card Email</field>
+            <field name="model_id" ref="event_management.model_event_management_employee"/>
+            <field name="email_from">kiranraj.ds0061@gmail.com</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="subject">{{object.name}}</field>
+            <field name="description">This is mail</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear
+                        <t t-out="object.name"/>
+                        <br/>
+                        Country :
+                        <t t-out="object.country"/>
+                        <br/>
+                        Contact :
+                        <t t-out="object.phone"/>
+                        <br/>
+<!--                        Manager :-->
+<!--                        <t t-out="object.manager_id"/>-->
+
+<!--                        <br/>-->
+<!--                        <br/>-->
+                        Your Profile Successfully Created. please check your given above details.
+                        <br/>
+                        <br/>
+                        If any queries please send your Questions to below mail id.
+                        <br/>
+                        test@gmail.com
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="employe_registration_template">
+        <t t-call="website.layout">
+            <div class="page">
+                <h3>Student Details</h3>
+                <form action="\add_employee" methods="['POST']">
+                    <table width="80%">
+                        <tr>
+                            <th width="40%">country</th>
+                            <td width="40%">
+                                <select name="country" class="form-control">
+                                    <t t-foreach="country_id" t-as="c">
+                                        <option t-att-value="c.id">
+                                            <t t-esc="c.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <tr>
+                                <th width="40%">Name</th>
+                                <td width="40%">
+                                    <input class="form-control" type="char" name="name" required="1"></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="40%">Email</th>
+                                <td width="40%">
+                                    <input class="form-control" type="char" name="email" required="1"></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="40%">Phone</th>
+                                <td width="40%">
+                                    <input class="form-control" type="char" name="phone" required="1"></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="40%">City</th>
+                                <td width="40%">
+                                    <input class="form-control" type="char" name="city" required="1"></input>
+                                </td>
+                            </tr>
+                        </tr>
+                    </table>
+                    <input class="btn btn-primary" type="submit" string="Create"/>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="admission_success">
+        <t t-call="website.layout">
+            <div class="page" align="center">
+                <p>Admission Created Successfully</p>
+            </div>
+        </t>
+    </template>
+</odoo>

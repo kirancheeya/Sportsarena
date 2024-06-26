@@ -1,0 +1,40 @@
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_appointment" model="ir.ui.view">
+        <field name="name">report.wizard.form</field>
+        <field name="model">employee.report.form</field>
+        <field name="arch" type="xml">
+            <form string="Create New record">
+                <group>
+                    <group>
+                       <field name="start_date"/>
+                    </group>
+                    <group>
+                        <field name="end_date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="wizard_report" string="Print" type="object" class="btn-success"/>
+                    <button string="cancel" class="btn-danger" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Report Appointment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.report.form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem id="employee_wizard_filter"
+              parent="Main_menu"
+              name="Report employee"
+              action="report_wizard_action"
+              sequence="7"/>
+
+</odoo>-->

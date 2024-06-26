@@ -1,0 +1,33 @@
+{
+    'name': ' ElIXIR Sports Arena ',
+    'version': '1.8',
+    'category': 'Booking Sports Arena',
+    'sequence': 1,
+    'summary': ' Track all booking details,Feed back details',
+    'website': 'https://www.elixir.com/app/crm',
+    'depends': ['base',
+                'mail',
+                ],
+    'data': [
+        'data\ir.sequence.xml',
+        'data\sender_email_template.xml',
+        'data\co_badminton_template.xml',
+        'views\customer.xml',
+        'views\complaint.xml',
+        'views\elixir_employee.xml',
+        'views\employee_reply.xml',
+        'views\ebooking.xml',
+        'views\courts.xml',
+        'views\e_tt_court.xml',
+        'views\swimming.xml',
+        'views\inventory.xml',
+        'report\invoice.xml',
+        'report\customer_invoice.xml',
+        'security\ir.model.access.csv',
+        'wizard\invoice.xml'
+    ],
+    'installable': True,
+    'application': True,
+
+    'license': 'LGPL-3',
+}

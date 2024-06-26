@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_booking_form" model="ir.ui.view">
+        <field name="name">sports.booking.form</field>
+        <field name="model">sports.booking</field>
+        <field name="arch" type="xml">
+            <form string="Booking">
+                <header>
+                    <field name="state" widget = "statusbar" options="{'clickable' : '1'}" statusbar_colors='{"new" : "green"}'/>
+                    <button name="move_approved" string="Approve" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="is_paid"/>
+                    </group>
+                </sheet>
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="customer_id"/>
+                        <field name="cus_contact"/>
+                        <!--<field name="customer_contact_id"/>-->
+                        <field name="court_id"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_booking_tree" model="ir.ui.view">
+        <field name="name">sports.booking.form</field>
+        <field name="model">sports.booking</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="is_paid"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="booking_action">
+        <field name="name">Booking</field>
+        <field name="res_model">sports.booking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="booking"
+              name="Booking"
+              parent="Main_menu"
+              action="booking_action"
+              sequence="1"/>
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_booking_form" model="ir.ui.view">
+        <field name="name">elixir.sports.booking.form</field>
+        <field name="model">elixir.booking</field>
+        <field name="arch" type="xml">
+            <form string="Booking">
+                <header>
+                    <field name="status" widget="statusbar" tatusbar_visible="Draft,Approved,Canceled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="booking_no"/>
+                        <field name="customer_id"/>
+                        <field name="customer_name"/>
+                        <field name="cus_contact"/>
+                        <field name="cus_email"/>
+                        <field name="employee_id"/>
+                        <field name="emp_name"/>
+                        <field name="sports" widget="radio" class="vertical-radio"/>
+                        <field name="is_paid"/>
+                        <field name="court_id" attrs="{'invisible': [('sports', '!=', 'badminton')]}"/>
+                        <field name="court_type" attrs="{'invisible': [('sports', '!=', 'badminton')]}"/>
+                        <field name="tt_court_id" attrs="{'invisible': [('sports', '!=', 'tt')]}"/>
+                        <field name="tt_court_type" attrs="{'invisible': [('sports', '!=', 'tt')]}"/>
+                        <field name="swimming_id" attrs="{'invisible': [('sports', '!=', 'swimming')]}"/>
+                        <field name="swimming_type" attrs="{'invisible': [('sports', '!=', 'swimming')]}"/>
+                        <field name="racket_bookings" widget="many2many_tags"/>
+                        <field name="rent_price"/>
+                        <field name="quantity"/>
+                        <field name="price"/>
+                        <field name="discount"/>
+                        <field name="total"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="predefined_time"/>
+                    </group>
+                     <div class="oe_title">
+                        <button name="action_cancel" string="Cancel" type="object" class="oe_highlight"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_booking_tree" model="ir.ui.view">
+        <field name="name">elixir.booking</field>
+        <field name="model">elixir.booking</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="booking_no"/>
+                <field name="customer_id"/>
+                <field name="customer_name"/>
+                <field name="cus_contact"/>
+                <field name="cus_email"/>
+                <field name="employee_id"/>
+                <field name="emp_name"/>
+                <field name="sports"/>
+
+                <field name="is_paid"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <!--<field name="customer_contact_id"/>-->
+                <field name="court_id"/>
+                <field name="tt_court_id"/>
+                <field name="tt_court_type"/>
+                <field name="swimming_id"/>
+                <field name="swimming_type"/>
+                <field name="price"/>
+                <field name="predefined_time"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="booking_action">
+        <field name="name">Booking</field>
+        <field name="res_model">elixir.booking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_elixir_sports_form"
+              name="ESA"
+              sequence="1"/>
+    <menuitem id="menu_elixir_sports_booking"
+              name="Booking"
+              parent="menu_elixir_sports_form"
+              sequence="4"/>
+    <menuitem id="elixir_booking"
+              name="Booking Details"
+              parent="menu_elixir_sports_booking"
+              action="booking_action"
+              sequence="1"/>
+</odoo>

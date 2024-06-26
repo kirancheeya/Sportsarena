@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_customer_complaint_form" model="ir.ui.view">
+        <field name="name">customer.complaint.form</field>
+        <field name="model">customer.complaint</field>
+        <field name="arch" type="xml">
+            <form string="Customer Complaint">
+                <sheet>
+                    <group>
+                        <field name="complain" readonly="1"/>
+                        <field name="customer_id"/>
+                        <field name="complaint_date" readonly="1"/>
+                        <field name="customer_email"/>
+                        <field name="subject"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_title">
+                    <button name="send_complaint_email" string="Send Complaint" type="object" class="oe_highlight"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_elixir_customer_complain_tree" model="ir.ui.view">
+        <field name="name">elixir.customer.Complain.tree</field>
+        <field name="model">customer.complaint</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Complain">
+                <field name="complain"/>
+                <field name="customer_id"/>
+                <field name="complaint_date"/>
+                <field name="customer_email"/>
+                <field name="subject"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_customer_complaint_details">
+        <field name="name">Elixir Customer Complaint Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.complaint</field>
+        <field name="view_mode">kanban,tree,form,search,pivot,graph</field>
+    </record>
+
+    <menuitem id="menu_elixir_sports_form"
+              name="ESA"
+              sequence="1"/>
+    <menuitem id="menu_elixir_sports_customer"
+              name="Customers"
+              parent="menu_elixir_sports_form"
+              sequence="2"/>
+    <menuitem id="menu_customer_complaint"
+              name="Feed Back"
+              parent="menu_elixir_sports_customer"
+              action="action_customer_complaint_details"
+              sequence="2"/>
+</odoo>

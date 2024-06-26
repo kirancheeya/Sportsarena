@@ -1,0 +1,63 @@
++-----------------------+        +------------------------+       +-------------------+       +------------------+        +----------------------+
+|  ElixirCustomer       |        | ElixirEmployee         |       | BadmintonCourt    |       | SwimmingPoolCourt|        | TTCourt              |
++-----------------------+        +------------------------+       +-------------------+       +------------------+        +----------------------+
+| adm_no                |        | emp_id                 |       | name              |       | name             |        | name                 |
+| first_name            |        | name                   |       | court_type        |       | indoor_price_per_hour|    | indoor_price_per_hour|
+| last_name             |        | position               |       | price_per_hour    |       | Base_capacity    |        | court_type           |
+| dob                   |        | gender                 |       | base_capacity     |       | capacity         |        +----------------------+
+| admission_date        |        | dob                    |       | capacity          |       | pool_type        |
+| gender                |        | age                    |       | bookings          |
+| age                   |        | image_1920             |       | availability      |
+| address_line1         |        | phone_no               |       +-------------------+
+| address_line2         |        | qualification          |
+| city                  |        | address_line1          |
+| state                 |        | address_line2          |
+| zip                   |        | city                   |
+| district              |        | state                  |
+| country               |        | zip                    |
+| blood_group           |        | district               |
+| languages_known_ids   |        | country                |
+| phone_no              |        | email                  |
+| f_name                |        +------------------------+
+| proof                 |
+| email                 |
+| emergency_contact_name|
+| emergency_contact_phone|
+| medical_conditions    |
++-----------------------+
+
+
++-----------------------+        +------------------------+       +-------------------+       +------------------+        +----------------------+
+|  Booking              |        | BadmintonCourt         |       | TTCourt           |       | SwimmingPoolCourt|        | SportsInventory      |
++-----------------------+        +------------------------+       +-------------------+       +------------------+        +----------------------+
+| booking_no            |        | name                   |       | name              |       | name             |        | item_type            |
+| customer_id           |        | court_type             |       | indoor_price_per_hour|    | indoor_price_per_hour|    | name                 |
+| customer_name         |        | price_per_hour         |       | court_type        |       | pool_type        |        | original_price       |
+| cus_contact           |        | base_capacity          |       +-------------------+       +------------------+        | rental_price         |
+| cus_email             |        | capacity               |                                                                    | quantity             |
+| employee_id           |        | bookings               |                                                                    | description          |
+| emp_name              |        | availability           |                                                                    | booking_id           |
+| court_id              |        +------------------------+                                                                    +----------------------+
+| is_paid               |
+| sports                |
+| price                 |
+| start_time            |
+| end_time              |
+| court_type            |
+| stopwatch_running     |
+| stopwatch_start_time  |
+| stopwatch_elapsed_time|
+| remaining_time        |
+| predefined_time       |
+| tt_court_id           |
+| tt_court_type         |
+| swimming_id           |
+| swimming_type         |
+| racket_bookings       |
+| rent_price            |
+| quantity              |
+| total                 |
+| status                |
+| total_amt             |
+| discount              |
++-----------------------+

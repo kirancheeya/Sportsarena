@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="employee_report" model="ir.actions.report">
+        <field name="name">Report employee</field>
+        <field name="model">sports.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sports.report_employee</field>
+        <field name="report_file">sports.report_employee</field>
+        <field name="print_report_name">'Report Employee'</field>
+        <field name="binding_model_id" ref="model_sports_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+    <template id="report_employee">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="records" t-as="o">
+                        <div class="row">
+                            <table>
+                                <td>#cell in tabel
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <h3>Employee Report</h3>
+                                            <td>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Phone</th>
+                                                        <th>Address</th>
+                                                        <th>Date of Birth</th>
+                                                        <th>Gender</th>
+                                                        <th>Job Title</th>
+                                                        <th>Department</th>
+                                                        <th>Salary</th>
+                                                        <th>Hire Date</th>
+                                                        <th>Image</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr t-foreach="records" t-as="order">
+                                                        <td>
+                                                            <span t-esc="order.name"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.email"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.phone"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.address"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.date_of_birth"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.gender"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.job_title"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.department"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.salary"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.hire_date"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="order.image_1920"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </table>
+                        </div>
+                        <span>-------------------------------------------------------</span>
+                        <span t-field="order.image_1920" t-options='{"widget": "image"}'/>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

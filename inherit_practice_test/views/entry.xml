@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_room_form" model="ir.ui.view">
+        <field name="name">Room Entry</field>
+        <field name="model">entry.entry</field>
+        <field name="arch" type="xml">
+            <form string="Room Entry">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="entry_time"/>
+                        <field name="noc_status"/>
+                        <field name="proof"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_room_tree" model="ir.ui.view">
+        <field name="name">Room.form</field>
+        <field name="model">entry.entry</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="entry_time"/>
+                <field name="noc_status"/>
+                <field name="proof"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="room_entry">
+        <field name="name">Room form</field>
+        <field name="res_model">entry.entry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="Room_entry"
+              name="Room Entry"
+              parent="Main_menu_inherit"
+              action="room_entry"/>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--tree-->
+    <record id="Event_addresses_tree" model="ir.ui.view">
+        <field name="name">event_management_address</field>
+        <field name="model">event_management.address</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer_id"/>
+                <field name="type"/>
+                <field name="street"/>
+                <field name="street2"/>
+                <field name="city"/>
+                <field name="state"/>
+                <field name="country_id"/>
+                <field name="zip"/>
+                <field name="is_default"/>
+            </tree>
+        </field>
+    </record>
+    <!--action-->
+    <record id="action_cus_address" model="ir.actions.act_window">
+        <field name="name">elixer_Customer_address</field>
+        <field name="res_model">event_management.address</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="event_customer_addresses"
+              name="Customer Addresses"
+              action="action_cus_address"
+              parent="event_customer"
+              sequence="03"
+    />
+
+</odoo>

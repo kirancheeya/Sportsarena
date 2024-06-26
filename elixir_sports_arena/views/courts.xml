@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="elixir_court_form" model="ir.ui.view">
+        <field name="name">sports.court.form</field>
+        <field name="model">elixir.badminton_court</field>
+        <field name="arch" type="xml">
+            <form string="Court">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="court_type"/>
+                        <field name="price_per_hour"/>
+                        <field name="base_capacity"/>
+                        <field name="capacity"/>
+                        <field name="availability"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="elixir_court_tree" model="ir.ui.view">
+        <field name="name">sports.court.form</field>
+        <field name="model">elixir.badminton_court</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="court_type"/>
+                <field name="price_per_hour"/>
+                <field name="base_capacity"/>
+                <field name="capacity"/>
+                <field name="availability"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="elixir_court_action">
+        <field name="name">Court</field>
+        <field name="res_model">elixir.badminton_court</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_elixir_sports_form"
+              name="ESA"
+              sequence="1"/>
+    <menuitem id="menu_elixir_sports_form_courts"
+              name="Courts"
+              parent="menu_elixir_sports_form"
+              sequence="4"/>
+    <menuitem id="elixir_courts"
+              name="Badminton Courts"
+              parent="menu_elixir_sports_form_courts"
+              action="elixir_court_action"
+              sequence="3"/>
+</odoo>

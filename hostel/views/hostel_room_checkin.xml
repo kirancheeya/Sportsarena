@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_room_checkin_form" model="ir.ui.view">
+        <field name="name">Check In</field>
+        <field name="model">room.checkin</field>
+        <field name="arch" type="xml">
+            <form string="Check In">
+                <sheet>
+                    <group>
+                        <field name="ad_id"/>
+                        <field name="name"/>
+                        <field name="contact_no"/>
+                        <field name="department"/>
+                        <!--                        <field name="capacity"/>-->
+                        <!--                        <field name="room_no"/>-->
+                        <field name="fees"/>
+                        <field name="mess_charge"/>
+                        <field name="miscellaneous"/>
+                        <field name="checkin_Date"/>
+                        <field name="discount"/>
+                        <field name="total"/>
+
+
+                        <field name="total_charge_with_rupees"/>
+                        <field name="amt_paid"/>
+                        <field name="due_amnt"/>
+                        <field name="payment_status"/>
+                        <field name="room_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_room_checkin_tree" model="ir.ui.view">
+        <field name="name">Check In</field>
+        <field name="model">room.checkin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ad_id"/>
+                <field name="name"/>
+                <field name="contact_no"/>
+                <field name="department"/>
+
+                <!--                <field name="room_no"/>-->
+                <field name="fees"/>
+                <field name="mess_charge"/>
+                <field name="miscellaneous"/>
+                <field name="checkin_Date"/>
+                <field name="room_id"/>
+                <field name="discount"/>
+                <field name="total"/>
+
+                <field name="total_charge_with_rupees"/>
+                <field name="amt_paid"/>
+                <field name="due_amnt"/>
+                <field name="payment_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hostel_room_checkin">
+        <field name="name">Check In</field>
+        <field name="res_model">room.checkin</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="hostel"
+              name="Hostel"
+    />
+    <menuitem id="Rooms"
+              name="Rooms"
+              parent="hostel"/>
+    <menuitem id="room_check_in"
+              name="checkin"
+              parent="Rooms"
+              action="hostel_room_checkin"/>
+
+
+</odoo>

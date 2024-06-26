@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employees_manager_profile_hostel" model="ir.ui.view">
+        <field name="name">manager.details.form</field>
+        <field name="model">manager.details</field>
+        <field name="arch" type="xml">
+            <form string="Manager Profile">
+                <sheet>
+                    <field name="image_1920" widget='image' class="oe_avatar" options='{"zoom": true}'/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="shift"/>
+                            <field name="gender"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                        </group>
+                        <group name="address_details">
+                            <label for="address_line1" string="Address Name"/>
+                            <div class="o_address_format">
+                                <field name="address_line1" placeholder="Street..." class="o_address_street"/>
+                                <field name="address_line2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="city" placeholder="City" class="o_address_city"/>
+                                <field name="state" class="o_address_state" placeholder="State"
+                                       options='{"no_open": True}'/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="district" placeholder="District" class="o_address_district"/>
+                                <field name="country" placeholder="Country" class="o_address_country"
+                                       options='{"no_open": True, "no_create": True}'/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="phone_no"/>
+                            <field name="qualification"/>
+                            <field name="experience"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="view_employees_manager_hostel_tree" model="ir.ui.view">
+        <field name="name">manager.details.tree</field>
+        <field name="model">manager.details</field>
+        <field name="arch" type="xml">
+            <tree string="Employees Tree">
+                <field name="name"/>
+                <field name="shift"/>
+                <field name="gender"/>
+                <field name="qualification"/>
+                <field name="experience"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_employees_manager_assistant_details" model="ir.actions.act_window">
+        <field name="name">Manager Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">manager.details</field>
+        <field name="view_mode">tree,form,search</field>
+
+    </record>
+
+    <menuitem id="employee"
+              name="Employee"
+              parent="hostel"
+              sequence="1"/>
+    <menuitem id="hostel_manager"
+              name="Manager"
+              parent="employee"
+              action="action_employees_manager_assistant_details"
+              sequence="1"/>
+</odoo>

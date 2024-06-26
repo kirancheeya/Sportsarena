@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Email Template for Reply Notification -->
+        <record id="reply_email_template" model="mail.template">
+            <field name="name">Reply Notification</field>
+            <field name="email_from">${object.emp_email}</field> <!-- Set the "From" address from emp_email field -->
+            <field name="subject">Re: [{{ object.feedback.complain }}] {{ object.feedback.subject }}</field>
+            <field name="email_to">${object.emp_Cus}</field> <!-- Set the "To" address from emp_Cus field -->
+            <field name="model_id" ref="model_employee_reply"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+                    <p>Dear [[ object.emp_Cus ]],</p>
+                    <p>We have received your complaint with the
+                    subject: <strong>[{{ object.feedback.complain }}] {{ object.feedback.subject }}</strong>. Thank you for bringing this to our attention.</p>
+                    <p>Here is our response:</p>
+                    <p>{{ object.reply_text }}</p>
+                    <p>Warm regards,</p>
+                    <p>{{ object.name }}</p>
+                    <p>{{ object.position }}</p>
+                    <p>{{ object.company_id.name }}</p>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

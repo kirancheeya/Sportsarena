@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Customer Form views -->
+    <record id="del_book_form" model="ir.ui.view">
+        <field name="name">del.booking.info.form</field>
+        <field name="model">del.booking.info</field>
+        <field name="arch" type="xml">
+            <form string="Classical inherit">
+                <sheet>
+                    <group>
+                            <field name="gender"/>
+                            <field name="name"/>
+                            <field name="emp_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="del_book_tree" model="ir.ui.view">
+        <field name="name">del.booking.info.tree</field>
+        <field name="model">del.booking.info</field>
+        <field name="arch" type="xml">
+            <tree>
+
+                <field name="emp_id"/>
+                <field name="gender"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action-->
+    <record id="del_book_action" model="ir.actions.act_window">
+        <field name="name">del.booking.info.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">del.booking.info</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <!--    <menuitem id="Main_menu"-->
+    <!--              name="inherit"-->
+    <!--              sequence="1"-->
+    <!--    />-->
+    <menuitem id="customer"
+              name="employee inherit"
+              parent="Main_menu_inherit"
+              action="del_book_action"
+              sequence="2"
+    />
+
+</odoo>
+

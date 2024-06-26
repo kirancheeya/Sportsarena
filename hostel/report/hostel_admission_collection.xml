@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="billing_invoice_report" model="ir.actions.report">
+            <field name="name">Billing Invoice</field>
+            <field name="model">hostel_fees_details</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hostel.report_billing_invoice_template</field>
+            <field name="report_file">hostel.report_billing_invoice_template</field>
+            <field name="print_report_name">'Billing Invoice'</field>
+            <field name="binding_model_id" ref="model_hostel_fees_details"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Template for Hotel Billing Report -->
+        <template id="report_billing_invoice_template">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <div>
+                        <div>
+                            <h1></h1>
+                        </div>
+                    </div>
+                    <table>
+                        <div>
+                            <t t-esc="start_date" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>
+                        </div>
+                        <thead style="color: #00a09d;font-size:16px;">
+
+                        </thead>
+
+                        <t t-foreach="records" t-as="ab">
+
+                        </t>
+
+                    </table>
+                    <table>
+                        <div class="header">
+                            <div>
+                                <h2>Hostel Billing</h2>
+                            </div>
+                            <div>
+                                <span>Roll No:
+                                    <t t-esc="ab.roll_no"/>
+                                </span>
+                                <br/>
+                                <span>Name:
+                                    <t t-esc="ab.name"/>
+                                </span>
+                                <br/>
+                                <span>Contact:
+                                    <t t-esc="ab.contact_no"/>
+                                </span>
+                                <br/>
+                                <span>Mess_charge:
+                                    <t t-esc="ab.discount_amnt"/>
+                                </span>
+                                <br/>
+                                <span>Fees:
+                                    <t t-esc="ab.fees"/>
+                                </span>
+                                <br/>
+                                <span>Mess_charge:
+                                    <t t-esc="ab.mess_charge"/>
+                                </span>
+                                <br/>
+                                <span>Miscellaneous:
+                                    <t t-esc="ab.miscellaneous"/>
+                                </span>
+                                <br/>
+                                <span>checkin_Date:
+                                    <t t-esc="ab.checkin_Date"/>
+                                </span>
+                                <br/>
+                                <span>payment_status:
+                                    <t t-esc="ab.payment_status"/>
+                                </span>
+                                <br/>
+                                <span>total:
+                                    <t t-esc="ab.total"/>
+                                </span>
+                            </div>
+                        </div>
+<!--                        <div class="content">-->
+<!--                            <table style="width: 100%;">-->
+<!--                                <thead>-->
+<!--                                    <tr>-->
+<!--                                        <th>Event Cost</th>-->
+<!--                                        <th>Discount Amount</th>-->
+<!--                                        <th>Total Amount</th>-->
+<!--                                        <th>Payment Mode</th>-->
+<!--                                    </tr>-->
+<!--                                </thead>-->
+<!--                                <tbody>-->
+<!--                                    <t t-foreach="docs" t-as="r">-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <t t-esc="r.fees"/>-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                <t t-esc="r.discount_amnt"/>-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                <t t-esc="r.total"/>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    </t>-->
+<!--                                </tbody>-->
+<!--                            </table>-->
+<!--                            <br/>-->
+<!--                            <p>-->
+<!--                                <b>Total Amount:</b>-->
+<!--                                <t t-esc="r.total_amount"/>-->
+<!--                            </p>-->
+<!--                        </div>-->
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="emp_list_template">
+        <data>
+            <field name="arch" type="xml">
+                <form string="Employee List">
+                    <!-- Include CSS -->
+                    <link rel="stylesheet" type="text/css" href="event_management\static\src\custom.css"/>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>Employee form List</h1>
+                        </div>
+                        <div class="oe_button_box">
+                            <!-- Add buttons or other elements here if needed -->
+                            <button name="send_email_fun" string="Send Email" type="images" class="oe_highlight"
+                                    icon="fa-envelope">email
+                            </button>
+
+                            <button class="oe_button oe_button_primary">
+                                <a href="http://localhost:8069/employee">
+                                    Employee registration Form
+                                </a>
+                            </button>
+                        </div>
+                        <table class="oe_emp_table" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Images</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>Country</th>
+                                    <th>Country_code</th>
+                                    <th>Gender</th>
+                                    <th>Department</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="emp_data" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="o['name']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['email']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['phone']"/>
+                                        </td>
+                                        <td>
+                                            <img t-att-src="o['images_1920']" type="image"
+                                                 style="max-width: 10px; max-height: 20px;"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['address']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['city']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['country']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['country_code']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['gender']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['department']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </sheet>
+                </form>
+            </field>
+        </data>
+    </template>
+
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_room_form" model="ir.ui.view">
+        <field name="name">Check In</field>
+        <field name="model">hostel.checkin</field>
+        <field name="arch" type="xml">
+            <form string="Check In">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sharing_configuration"/>
+                        <field name="base_capacity"/>
+                        <field name="capacity"/>
+                        <field name="base_price"/>
+                        <field name="price"/>
+                        <field name="availability"/>
+<!--                        <field name="checkin_Date"/>-->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_room_tree" model="ir.ui.view">
+        <field name="name">Check In</field>
+        <field name="model">hostel.checkin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="sharing_configuration"/>
+                <field name="base_capacity"/>
+                <field name="capacity"/>
+                <field name="base_price"/>
+                <field name="price"/>
+                <field name="availability"/>
+<!--                <field name="checkin_Date"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="room_checkin">
+        <field name="name">Check In</field>
+        <field name="res_model">hostel.checkin</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hostel"
+              name="Hostel"
+    />
+    <menuitem id="Room"
+              name="Rooms"
+              parent="hostel"/>
+    <menuitem id="check_in"
+              name="Room"
+              parent="Room"
+              action="room_checkin"/>
+</odoo>

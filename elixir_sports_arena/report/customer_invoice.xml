@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <data>
+        <record id="billing_invoice_details" model="ir.actions.report">
+            <field name="name">Customer Invoice</field>
+            <field name="model">elixir.booking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">elixir_sports_arena.report_purchase_template</field>
+            <field name="report_file">elixir_sports_arena.report_purchase_template</field>
+            <field name="print_report_name">'Customer Invoice'</field>
+            <field name="binding_model_id" ref="model_elixir_booking"/>
+            <field name="binding_type">report</field>
+        </record>
+        <template id="report_purchase_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <!-- Header -->
+                        <div class="header">
+                            <h1>Prebooking Receipt</h1>
+                        </div>
+                        <!-- Content -->
+                        <div class="content">
+                            <div>
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <h3>Invoice Booking</h3>
+                                        <td>
+                                            <thead>
+                                                <tr>
+                                                    <th>Booking No</th>
+                                                    <th>Customer No</th>
+                                                    <th>Contact Name</th>
+                                                    <th>Contact Person</th>
+                                                    <th>Customer Email</th>
+                                                    <th>Employee Name</th>
+                                                    <th>Predefined Time</th>
+                                                    <th>Sports</th>
+                                                    <th>Racket Bookings</th>
+                                                    <th>Rent Price</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr t-foreach="records" t-as="order">
+                                                    <td>
+                                                        <span t-esc="order.booking_no"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.customer_id.adm_no"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.customer_name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.cus_contact"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.cus_email"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.employee_id.emp_id"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.emp_name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.predefined_time"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.sports"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.racket_bookings.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.rent_price"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="order.total"/>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+
+</odoo>

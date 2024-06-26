@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cus_classical_inherit,cus.classical.inherit,model_cus_classical_inherit,,1,1,1,1
+access_del_booking_info,del.booking.info.name,model_del_booking_info,,1,1,1,1
+access_hostel.student,hostel.student,model_hostel_student,,1,1,1,1
+access_hostel.room,hostel.room,model_hostel_room,,1,1,1,1
+access_entry.entry,entry.entry,model_entry_entry,,1,1,1,1
+access_room.inventory,room.inventory,model_room_inventory,,1,1,1,1

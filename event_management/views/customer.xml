@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Customer Form views -->
+    <record id="event_customer_form" model="ir.ui.view">
+        <field name="name">event_management.customer</field>
+        <field name="model">event_management.customer</field>
+        <field name="arch" type="xml">
+            <form string="Customers">
+                <sheet>
+                    <!--<group>
+                        <field name="image_1920" widget='image' class="oe_avatar" options='{"zoom": true}'/>
+                    </group>-->
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="dob"/>
+                        <field name="gender"/>
+                        <field name="str_date"/>
+                        <field name="orders"/>
+                        <field name="str_date"/>
+                        <field name="ads"/>
+                    </group>
+                    <notebook>
+                        <page string=" address Detail">
+
+                            <tree editable="bottom">
+
+                            </tree>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="Event_customer_tree" model="ir.ui.view">
+        <field name="name">event_management.customer</field>
+        <field name="model">event_management.customer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="ads"/>
+                <field name="dob"/>
+                <field name="gender"/>
+                <field name="str_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action-->
+    <record id="action_event_management" model="ir.actions.act_window">
+        <field name="name">elixer_Customer</field>
+        <field name="res_model">event_management.customer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Customer info.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="Event_Management"
+              name="Elixer Event Management"
+              sequence="01"
+    />
+    <menuitem id="event_customer"
+              name="Customer"
+              action="action_event_management"
+              parent="Event_Management"
+              sequence="02"
+    />
+
+</odoo>
+

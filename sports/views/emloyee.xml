@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">sports.employee</field>
+        <field name="model">sports.employee</field>
+        <field name="arch" type="xml">
+            <form string="Court">
+                <sheet>
+                    <group>
+                        <field name="image_1920" widget='image' class="oe_avatar" options='{"zoom": true}' />
+                    </group>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="address"/>
+                        <field name="date_of_birth"/>
+                        <field name="gender"/>
+                        <field name="job_title"/>
+                        <field name="department"/>
+                        <field name="salary"/>
+                        <field name="hire_date"/>
+<!--                        <field name="marital"/>-->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_employee_tree" model="ir.ui.view">
+        <field name="name">sports.employee</field>
+        <field name="model">sports.employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="address"/>
+                <field name="date_of_birth"/>
+                <field name="gender"/>
+                <field name="job_title"/>
+                <field name="department"/>
+                <field name="salary"/>
+                <field name="hire_date"/>
+                <field name="image_1920"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="employee_action">
+        <field name="name">Employee</field>
+        <field name="res_model">sports.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="employee"
+              name="Employee"
+              parent="Main_menu"
+              action="employee_action"
+              sequence="4"/>
+</odoo>

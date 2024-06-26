@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="available_rooms_template" name="Available Rooms Template">
+        <t t-call="web.external_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"
+                                 style="background-color: #337ab7; color: white; text-align: center;">
+                                <h2 class="panel-title" style="font-size: 24px;">BOSCO HOSTEL ROOM AVAILABILITY</h2>
+                            </div>
+                            <div class="panel-body">
+                                <t t-foreach="available_rooms" t-as="room">
+                                    <div class="row" style="margin-bottom: 20px;">
+                                        <div class="col-md-12">
+                                            <div class="panel panel-body" style="background-color: #ffffff;">
+                                                <p style="font-size: 18px;">Room Number: <t t-esc="room.name"/></p>
+                                                <p style="font-size: 18px;">Capacity: <t t-esc="room.current_capacity"/></p>
+                                                <p t-if="room.availability" style="font-size: 18px;">
+                                                    Availability: <span style="color: green;">Available</span>
+                                                </p>
+                                                <p t-if="not room.availability" style="font-size: 18px;">
+                                                    Availability: <span style="color: red;">Not Available</span>
+                                                </p>
+                                                <hr style="margin-top: 10px; margin-bottom: 10px;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

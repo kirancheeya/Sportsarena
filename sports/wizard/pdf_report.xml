@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--form-->
+    <record id="view_wizard_form" model="ir.ui.view">
+        <field name="name">Wizard</field>
+        <field name="model">employee.filter</field>
+        <field name="arch" type="xml">
+            <form string="Employee filter">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" options="{'no_open':True,'no_create': True}"/>
+                            <field name="email" options="{'no_open':True,'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="address"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="create_employee_action" string="Create" type="object" class="btn-success"/>
+                    <button string="cancel" class="btn-danger" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--action -->
+    <record id="wizard_action" model="ir.actions.act_window">
+        <field name="name">Wizard Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.filter</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard_filter"
+              parent="Main_menu"
+              name="Court Wizard"
+              action="wizard_action"
+              sequence="4"/>
+</odoo>

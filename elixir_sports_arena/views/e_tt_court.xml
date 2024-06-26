@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <data>
+
+        <!-- Table Tennis Court Form View -->
+        <record id="view_tt_court_form" model="ir.ui.view">
+            <field name="name">TT Court Form</field>
+            <field name="model">elixir.tt_court</field>
+            <field name="arch" type="xml">
+                <form string="TT Court">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="court_type" widget="radio"/>
+                            <field name="indoor_price_per_hour"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Table Tennis Court Tree View -->
+        <record id="view_tt_court_tree" model="ir.ui.view">
+            <field name="name">TT Court Tree</field>
+            <field name="model">elixir.tt_court</field>
+            <field name="arch" type="xml">
+                <tree string="TT Courts">
+                    <field name="name"/>
+                    <field name="court_type"/>
+                    <field name="indoor_price_per_hour"/>
+
+                </tree>
+            </field>
+        </record>
+
+    </data>
+
+    <record model="ir.actions.act_window" id="elixir_tt_court_action">
+        <field name="name">TT Court</field>
+        <field name="res_model">elixir.tt_court</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_elixir_sports_form"
+              name="ESA"
+              sequence="1"/>
+    <menuitem id="menu_elixir_sports_form_courts"
+              name="Courts"
+              parent="menu_elixir_sports_form"
+              sequence="4"/>
+    <menuitem id="elixir_tt_courts"
+              name="TT Court"
+              parent="menu_elixir_sports_form_courts"
+              action="elixir_tt_court_action"
+              sequence="3"/>
+</odoo>

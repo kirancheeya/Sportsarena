@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_sender_form" model="ir.ui.view">
+        <field name="name">employee.reply.form</field>
+        <field name="model">employee.reply</field>
+        <field name="arch" type="xml">
+            <form string="Employee Reply">
+                <sheet>
+                    <group>
+                        <field name="feedback_id"/>
+                        <field name="employee_id"/>
+                        <field name="emp_email"/>
+                        <field name="emp_Cus"/>
+                        <field name="subject"/>
+                        <field name="description"/>
+                        <field name="reply_text"/>
+                        <field name="date_sent"/>
+                        <field name="position"/>
+                        <field name="name"/>
+                    </group>
+                    <div class="oe_title">
+                        <button name="send_reply_email" string="Send Reply Email" type="object" class="oe_highlight"/>
+                    </div>
+                </sheet>
+                <footer>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_elixir_employee_tree" model="ir.ui.view">
+        <field name="name">employee.reply.tree</field>
+        <field name="model">employee.reply</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Reply">
+                <field name="feedback_id"/>
+                <field name="employee_id"/>
+                <field name="emp_email"/>
+                <field name="emp_Cus"/>
+                <field name="subject"/>
+                <field name="description"/>
+                <field name="reply_text"/>
+                <field name="date_sent"/>
+                <field name="position"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_emp_sender_details">
+        <field name="name">Elixir Employee Reply Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.reply</field>
+        <field name="view_mode">kanban,tree,form,search,pivot,graph</field>
+    </record>
+
+    <menuitem id="menu_elixir_sports_form" name="ESA" sequence="1"/>
+    <menuitem id="menu_elixir_sports_employee" name="Employee" parent="menu_elixir_sports_form" sequence="3"/>
+    <menuitem id="menu_employee_Sender" name="Employee Sender" parent="menu_elixir_sports_employee" action="action_emp_sender_details" sequence="2"/>
+</odoo>

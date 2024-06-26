@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="inherit_customer" model="ir.ui.view">
+            <field name="name">sports.customer.inherit</field>
+            <field name="model">sports.customer</field>
+            <field name="inherit_id" ref="sports.view_custome_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="test_inherit"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+<!--<odoo>
+    <data>
+         <record id="inherit_res_users" model="ir.ui.view">
+            <field name="name">sports.customer.inherit</field>
+            <field name="model">sports.customer</field>
+            <field name="inherit_id" ref="sports.view_custome_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='phone']" position="after">
+                    <field name="test"/>
+                </xpath>
+            </field>
+         </record>
+    </data>
+</odoo>-->

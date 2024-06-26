@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- employee Form views -->
+    <record id="event_employee_form" model="ir.ui.view">
+        <field name="name">event_management.employee</field>
+        <field name="model">event_management.employee</field>
+        <field name="arch" type="xml">
+            <form string="employees">
+                <header>
+                    <button name="home" string="Home" type="object" class="'oe_highlight"/>
+                    <button name="send_email_fun" string="Send Email" type="object" class="oe_highlight" icon="fa-envelope"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="images_1920" widget='image' class="oe_avatar" options='{"zoom": true}'/>
+                    </group>
+                   
+                    <group class="oe_structure">
+
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="address"/>
+                        <field name="city"/>
+                        <field name="country"/>
+                        <field name="country_code"/>
+                        <field name="gender"/>
+                        <field name="department"/>
+                        <field name="manager_id"/>
+                        <field name="otp"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--tree-->
+    <record id="Event_employee_tree" model="ir.ui.view">
+        <field name="name">event_management.employee</field>
+        <field name="model">event_management.employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="address"/>
+                <field name="city"/>
+                <field name="country"/>
+                <field name="gender"/>
+                <field name="department"/>
+                <field name="manager_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Define a Kanban view for the Employee model -->
+
+
+    <!--  <record id="customer_kanban" model="ir.ui.view">
+          <field name="name">customer.stock.kanban</field>
+          <field name="model">event_management.employee</field>
+          <field name="arch" type="xml">
+              <kanban class="o_kanban_mobile">
+                  <templates>
+                      <t t-name="kanban-box">
+                          <div class="o_kanban_card">
+                              <div t-attf-class="oe_kanban_global_click">
+                                  &lt;!&ndash;<div class="o_kanban_content">&ndash;&gt;
+
+
+                                  <div class="o_kanban_details">
+                                      <div class="o_kanban_name">
+                                          <field name="name"/>
+                                      </div>
+                                      <div class="o_kanban_email">
+                                          <field name="email"/>
+                                      </div>
+                                      <div class="o_kanban_phone">
+                                          <field name="phone"/>
+                                      </div>
+
+                                      <div class="o_kanban_image">
+                                          <t t-if="record.id">
+
+                                              &lt;!&ndash;<img t-att-src="'data:image/png;base64,' + record.image"/>&ndash;&gt;
+                                              <field name="images_1920" widget="image"
+                                                     options="{'max_width': 100, 'max_height': 100}"/>
+  &lt;!&ndash;
+                                              <img t-att-src="kanban_image('event_management.employee','images_1920',record.id.raw_value)"/>
+  &ndash;&gt;
+
+                                          </t>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </t>
+                  </templates>
+              </kanban>
+          </field>
+      </record>-->
+    <record id="view_employee_kanban" model="ir.ui.view">
+        <field name="name">employee.kanban.view</field>
+        <field name="model">event_management.employee</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_card">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <!-- Display employee image using field widget -->
+                                    <field name="images_1920" widget="image"
+                                           options="{'max_width': 100, 'max_height': 100}" class="img-responsive"/>
+                                </div>
+                                <div class="o_kanban_details">
+                                    <div class="o_kanban_name">
+                                        <ul>
+                                            <li>
+                                                <h6>Name :</h6>
+                                                <field name="name"/>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <h6>Email :</h6>
+                                                <field name="email"/>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <h6>Contact :</h6>
+                                                <field name="phone"/>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <h6>Department :</h6>
+                                                <field name="department"/>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <h6>Manager :</h6>
+                                                <field name="manager_id"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!--    <record id="view_employee_kanban" model="ir.ui.view">
+            <field name="name">employee.kanban.view</field>
+            <field name="model">event_management.employee</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <templates>
+                        &lt;!&ndash; Template for cards displaying images &ndash;&gt;
+                        <t t-name="kanban-box-image">
+                            <div class="o_kanban_card">
+                                <div class="o_kanban_image">
+                                    &lt;!&ndash; Display employee image using field widget &ndash;&gt;
+                                    <field name="images_1920" widget="image" options="{'max_width': 100, 'max_height': 100}"
+                                           class="img-responsive"/>
+                                </div>
+                            </div>
+                        </t>
+
+                        &lt;!&ndash; Template for cards displaying text &ndash;&gt;
+                        <t t-name="kanban-box-text">
+                            <div class="o_kanban_card">
+                                <div class="o_kanban_details">
+                                    <div class="o_kanban_name">
+                                        <field name="name"/>
+                                    </div>
+                                    <div class="o_kanban_email">
+                                        <field name="email"/>
+                                    </div>
+                                    <div class="o_kanban_phone">
+                                        <field name="phone"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>-->
+
+    <!--action-->
+    <record id="action_emp_management" model="ir.actions.act_window">
+        <field name="name">elixer_employee</field>
+        <field name="res_model">event_management.employee</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new employee info.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="Event_Management"
+              name="Elixer Event Management"
+              sequence="01"
+    />
+    <menuitem id="event_employee"
+              name="employee"
+              action="action_emp_management"
+              parent="Event_Management"
+              sequence="04"
+    />
+
+</odoo>
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Define the fields in a form view -->
+        <record id="view_sports_inventory_form" model="ir.ui.view">
+            <field name="name">sports.inventory.form</field>
+            <field name="model">sports.inventory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="item_type"/>
+                            <field name="name"/>
+                            <field name="original_price"/>
+                            <field name="rental_price"/>
+                            <field name="quantity"/>
+                            <field name="description"/>
+                            <field name="booking_id"/>
+
+                            <!-- Add other fields as needed -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define the fields in a tree view -->
+        <record id="view_sports_inventory_tree" model="ir.ui.view">
+            <field name="name">sports.inventory.tree</field>
+            <field name="model">sports.inventory</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="item_type"/>
+                    <field name="name"/>
+                    <field name="original_price"/>
+                    <field name="rental_price"/>
+                    <field name="quantity"/>
+                    <field name="booking_id"/>
+                    <!-- Add other fields as needed -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define the fields in a search view -->
+        <record id="view_sports_inventory_search" model="ir.ui.view">
+            <field name="name">sports.inventory.search</field>
+            <field name="model">sports.inventory</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="item_type" string="Item Type"/>
+                    <field name="name" string="Racket Name"/>
+                    <field name="original_price" string="Original Price"/>
+                    <field name="rental_price" string="Rental Price"/>
+                    <field name="quantity" string="Quantity"/>
+                    <!-- Add other fields as needed -->
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="elixir_inventory_action">
+            <field name="name">Inventory</field>
+            <field name="res_model">sports.inventory</field>
+            <field name="view_mode">tree,search,form</field>
+        </record>
+
+        <menuitem id="menu_elixir_sports_form"
+                  name="ESA"
+                  sequence="1"/>
+        <menuitem id="menu_elixir_sports_booking"
+                  name="Booking"
+                  parent="menu_elixir_sports_form"
+                  sequence="4"/>
+        <menuitem id="elixir_inventory"
+                  name="Inventory"
+                  parent="menu_elixir_sports_booking"
+                  action="elixir_inventory_action"
+                  sequence="4"/>
+
+    </data>
+
+
+</odoo>

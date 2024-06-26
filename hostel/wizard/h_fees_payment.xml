@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--form-->
+    <record id="view_fees_payment_form" model="ir.ui.view">
+        <field name="name">Fees paymnt Data</field>
+        <field name="model">report.fees.payment</field>
+        <field name="arch" type="xml">
+            <form string="Customer filter">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="wizard_fees_report" string="Create" type="object" class="btn-success"/>
+                    <button string="cancel" class="btn-danger" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--action -->
+    <record id="fees_wiz_action" model="ir.actions.act_window">
+        <field name="name">Student admission invoice.</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">report.fees.payment</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="hostel"
+              name="Hostel"
+    />
+    <menuitem id="report_menu"
+              name="Report"
+              parent="hostel"
+              sequence="1"/>
+    <menuitem id="fees_payment"
+              parent="report_menu"
+              name="Fees Payment"
+              action="fees_wiz_action"
+              sequence="6"/>
+</odoo>

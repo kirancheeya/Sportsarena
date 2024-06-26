@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_room_details_form" model="ir.ui.view">
+        <field name="name">Room Details</field>
+        <field name="model">hostel.room_details</field>
+        <field name="arch" type="xml">
+            <form string="Room Details">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="base_capacity"/>
+                        <field name="current_capacity"/>
+<!--                        <field name="checkin_ids"/>-->
+                        <field name="availability"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_room_details_tree" model="ir.ui.view">
+        <field name="name">Room Details</field>
+        <field name="model">hostel.room_details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="base_capacity"/>
+                <field name="current_capacity"/>
+<!--                <field name="checkin_ids"/>-->
+                <field name="availability"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="room_detail">
+        <field name="name">room details</field>
+        <field name="res_model">hostel.room_details</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="room_details"
+              name="Rooms Details"
+              parent="Rooms"
+              action="room_detail"/>
+</odoo>
